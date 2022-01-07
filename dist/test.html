@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>会动的HelloKitty</title>
+</head>
+
+<body>
+  <style id="demo2"></style>
+  <div id="demo"></div>
+  <div id="buttons">
+    <button id="btnPause">暂停</button>
+    <button id="btnPlay">播放</button>
+    <button id="btnSlow">慢速</button>
+    <button id="btnNormal">中速</button>
+    <button id="btnFast">快速</button>
+  </div>
+  <style>* {
+      box-sizing: border-box;
+    }
+
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    #buttons {
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      margin-right: 10px;
+
+    }
+
+    #buttons>button {
+      margin-bottom: 10px;
+      padding: 4px 8px;
+    }
+
+    #demo2 {
+      display: none;
+    }
+
+    #demo {
+      position: fixed;
+      height: 50vh;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border: 1px solid #ffc0cb;
+      overflow-y: auto;
+    }
+
+    #demo::-webkit-scrollbar {
+      display: none;
+    }
+
+    #html {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50vh;
+    }
+
+    .kitty * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .kitty *::before,
+    .kitty *::after {
+      box-sizing: border-box;
+    }
+
+    .kitty h1 {
+      position: absolute;
+      left: 50%;
+      top: 100px;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      white-space: nowrap;
+    }
+
+    .one {
+      position: absolute;
+      top: 90px;
+      left: -1px;
+      width: 20px;
+      height: 9px;
+      border-radius: 0 20px 15px 0;
+      transform: rotate(6deg);
+    }
+
+    .one span {
+      display: block;
+      position: absolute;
+      left: -32px;
+      top: 4px;
+      width: 33px;
+      height: 9px;
+      background-color: inherit;
+      border-radius: 35px 10px 10px;
+      transform: rotate(-15deg);
+    }
+
+    .two {
+      position: absolute;
+      top: 114px;
+      left: 5px;
+      width: 15px;
+      height: 8px;
+      border-radius: 10px 20px 13px 10px;
+      transform: rotate(-15deg);
+    }
+
+    .two span {
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: -24px;
+      height: 8px;
+      width: 25px;
+      background-color: inherit;
+      border-radius: 10px 0 0 15px;
+      transform: rotate(-2deg);
+    }
+
+    .three {
+      position: absolute;
+      top: 132px;
+      left: 16px;
+      width: 15px;
+      height: 8px;
+      border-radius: 10px;
+      transform: rotate(-16deg);
+    }
+
+    .three span {
+      display: block;
+      position: absolute;
+      top: 5px;
+      left: -34px;
+      width: 37px;
+      height: 8px;
+      background-color: inherit;
+      border-radius: 18px 10px 12px;
+      transform: rotate(-19deg);
+    }
+
+    .four {
+      position: absolute;
+      top: 90px;
+      left: 205px;
+      width: 25px;
+      height: 8px;
+      border-radius: 10px 10px 10px 10px;
+      transform: rotate(-13deg);
+    }
+
+    .four span {
+      display: block;
+      position: absolute;
+      top: 3px;
+      left: 20px;
+      width: 31px;
+      height: 8px;
+      background-color: inherit;
+      border-radius: 10px 18px 10px 15px;
+      transform: rotate(13deg);
+    }
+
+    .five {
+      position: absolute;
+      top: 114px;
+      left: 206px;
+      width: 22px;
+      height: 8px;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+    }
+
+    .five span {
+      display: block;
+      position: absolute;
+      top: 2px;
+      left: 16px;
+      width: 25px;
+      height: 8px;
+      background-color: inherit;
+      border-radius: 10px;
+      transform: rotate(11deg);
+    }
+
+    .six {
+      position: absolute;
+      top: 132px;
+      left: 195px;
+      width: 22px;
+      height: 8px;
+      border-radius: 20px 10px 10px 18px;
+      transform: rotate(11deg);
+    }
+
+    .six span {
+      display: block;
+      position: absolute;
+      top: 3px;
+      left: 18px;
+      width: 26px;
+      height: 8px;
+      background-color: inherit;
+      border-radius: 10px 10px 10px 10px;
+      transform: rotate(13deg);
+    }</style>
+  <div id="html">
+    <div class="kitty">
+      <h1>Hello Kitty!</h1>
+      <div class="head">
+        <div class="face">
+          <div class="eye left"></div>
+          <div class="eye right"></div>
+          <div class="nose"></div>
+        </div>
+        <div class="leftwhiskers one"><span></span></div>
+        <div class="leftwhiskers two"><span></span></div>
+        <div class="leftwhiskers three"><span></span></div>
+        <div class="rightwhiskers four"><span></span></div>
+        <div class="rightwhiskers five"><span></span></div>
+        <div class="rightwhiskers six"><span></span></div>
+        <div class="leftEar"><span></span></div>
+        <div class="rightEar"><span></span></div>
+        <div class="bow">
+          <div class="left"><span></span></div>
+          <div class="center"></div>
+          <div class="right"><span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="test.e0f8f1ce.js"></script>
+</body>
+
+</html>
